@@ -1,7 +1,10 @@
 # 构建产物
 build/
+build-*/
 src/*.o
 *.o
+*.a
+*.so
 
 # 崩溃转储
 core
