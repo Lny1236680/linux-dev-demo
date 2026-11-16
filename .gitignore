@@ -1,0 +1,12 @@
+# 构建产物
+build/
+src/*.o
+*.o
+
+# 崩溃转储
+core
+core.*
+
+# 编辑器
+.vscode/
+*.swp

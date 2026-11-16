@@ -1,0 +1,10 @@
+2026-11-16 08:01:02 INFO  system boot ok
+2026-11-16 08:01:10 INFO  sensor init done
+2026-11-16 08:01:15 ERROR uart timeout on COM3
+2026-11-16 08:01:22 INFO  balance loop start
+2026-11-16 08:01:40 ERROR imu data checksum mismatch
+2026-11-16 08:02:01 INFO  motor output normal
+2026-11-16 08:02:33 WARN  battery voltage low
+2026-11-16 08:03:10 ERROR pid output saturated
+2026-11-16 08:03:45 INFO  telemetry frame sent
+2026-11-16 08:04:00 INFO  system running
