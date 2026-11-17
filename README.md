@@ -1,5 +1,7 @@
 # logstat —— Linux 开发环境入门练习
 
+[![CI](https://github.com/Lny1236680/linux-dev-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/Lny1236680/linux-dev-demo/actions/workflows/ci.yml)
+
 一个多文件的 C 小项目，用来把 **GCC 编译 / Makefile / CMake / gdb 调试 / Shell 自动化** 这条链走一遍。
 
 ## 功能

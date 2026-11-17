@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: make 构建
+        run: make -j"$(nproc)"
+
+      - name: 自动测试
+        run: ./tools/run_tests.sh
+
+      - name: CMake 静态库构建
+        run: |
+          cmake -B /tmp/build-static -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release
+          cmake --build /tmp/build-static -j"$(nproc)"
+
+      - name: CMake 动态库构建
+        run: |
+          cmake -B /tmp/build-shared -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release
+          cmake --build /tmp/build-shared -j"$(nproc)"
+          /tmp/build-shared/logstat tests/sample.log ERROR
