@@ -40,8 +40,13 @@ echo "== 测试 $LOG (关键字: $KEY) =="
 expect_total=$(grep -c '' "$LOG")            # 空正则 = 统计所有行
 expect_match=$(grep -c "$KEY" "$LOG" || true)
 
+expect_max=$(awk '{ if (length > m) m = length } END { print m }' "$LOG")
+expect_min=$(awk 'NR == 1 { m = length } length < m { m = length } END { print m }' "$LOG")
+
 check "总行数"   "$expect_total" "$(get_field '总行数')"
 check "匹配行数" "$expect_match" "$(get_field '匹配行数' | cut -d'(' -f1)"
+check "最长行长" "$expect_max" "$(get_field '最长行长')"
+check "最短行长" "$expect_min" "$(get_field '最短行长')"
 
 echo "----------------------------------"
 echo "结果: $PASS 通过, $FAIL 失败"
